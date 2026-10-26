@@ -25,9 +25,9 @@ export function SelectedProjects() {
             {/* Figma "Rectangle 7": 348 × 440 video frame, tilted 5° */}
             <span className="block h-[4.2em] w-[3.48em] rotate-5 overflow-hidden bg-[#0b0b0b]">
               <LoopVideo
-                webm={site.video.projectsReel.webm}
-                mp4={site.video.projectsReel.mp4}
-                poster={site.video.projectsReel.poster}
+                webm={site.projectsReel.webm}
+                mp4={site.projectsReel.mp4}
+                poster={site.projectsReel.poster}
                 className="block h-full w-full"
               />
             </span>
