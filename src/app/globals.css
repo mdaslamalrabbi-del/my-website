@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Design tokens — extracted from Figma (file "My Website", frame 83:2079)
+   Desktop reference: 1920px frame, 1680px content, 120px gutters.
+--------------------------------------------------------------------------- */
+@theme {
+  --font-sans: var(--font-switzer), "Switzer", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --color-ink: #020008; /* Figma: Black */
+  --color-night: #010007; /* hero + footer base */
+  --color-cream: #f3eee8; /* hero headline */
+  --color-page: #faf9ff; /* page background (Figma frame fill) */
+  --color-card: #01012b; /* service cards */
+  --color-accent: #5eff5e; /* service codes */
+  --color-button: #0e0e0e; /* Button / Black */
+  --color-muted: #949494;
+  --color-subtle: #717171;
+  --color-placeholder: #d9d9d9;
+  --color-video: #0b0b0b;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+}
+
+/* Fluid spacing: every value hits the Figma number exactly at 1920px. */
+:root {
+  --gutter: clamp(20px, 6.25vw, 120px); /* 120 */
+  --section-y: clamp(72px, 6.875vw, 132px); /* 132 */
+  --stack: clamp(40px, 3.75vw, 72px); /* 72 — heading → content */
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-feature-settings: "kern";
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------------------
+   Layout + type utilities (names mirror the Figma text styles)
+--------------------------------------------------------------------------- */
+@utility container-site {
+  width: 100%;
+  max-width: calc(1680px + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility py-section {
+  padding-block: var(--section-y);
+}
+
+@utility mt-stack {
+  margin-top: var(--stack);
+}
+
+/* Heading 2 — Switzer Medium 66/80, -1 */
+@utility text-h2 {
+  font-size: clamp(34px, 3.4375vw, 66px);
+  line-height: 1.2121;
+  letter-spacing: -1px;
+  font-weight: 500;
+}
+
+/* Body Text — Switzer Light 20/28, -0.5 */
+@utility text-body {
+  font-size: clamp(18px, 1.0417vw, 20px);
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+
+/* Lead — Switzer Regular 24/36, -0.5 */
+@utility text-lead {
+  font-size: clamp(18px, 1.25vw, 24px);
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+}
+
+/* Nav — Switzer Medium 18/24, uppercase */
+@utility text-nav {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Card title — Switzer Semibold 48/52 */
+@utility text-card-title {
+  font-size: clamp(30px, 2.5vw, 48px);
+  line-height: 1.0833;
+  font-weight: 600;
+}
+
+/* Code label — Switzer Medium 16, 1.4, +1.6, uppercase */
+@utility text-label {
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 1.6px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Hero display: DESIGNER 200/204, FOR GROWTH 188/204, -4.
+   Mobile/tablet: sized so "FOR GROWTH" always fits the content width.
+   Desktop: scales with the viewport, exactly 200px at 1920. */
+@utility hero-type {
+  font-size: calc((100vw - 2 * var(--gutter)) / 6.25);
+  @media (width >= 64rem) {
+    font-size: min(10.4167vw, 200px);
+  }
+}
+
+/* "Selected Projects" composition, 100px at 1920 */
+@utility projects-type {
+  font-size: min(100px, 5.2083vw, calc((100vw - 2 * var(--gutter)) / 10.7));
+}
+
+/* Footer wordmark row, 200px at 1920 */
+@utility wordmark-type {
+  font-size: min(200px, 10.4167vw, calc((100vw - 2 * var(--gutter)) / 6.3));
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Hero tags fade out before they meet "FOR GROWTH" (Figma: Rectangle 5 overlay). */
+@utility tags-fade {
+  @media (width >= 64rem) {
+    mask-image: linear-gradient(90deg, #000 0%, #000 57.8%, transparent 74.6%);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Selected Projects — auto side-scroll
+   Each row holds the tile set twice; moving by -50% loops it seamlessly.
+   Tile 843 × 632 + 32 gap at 1920 → 43.906vw + 1.6667vw.
+--------------------------------------------------------------------------- */
+:root {
+  --gallery-duration: 60s;
+}
+.gallery-track {
+  display: flex;
+  width: max-content;
+  animation: gallery-left var(--gallery-duration) linear infinite;
+  will-change: transform;
+}
+/* Row 2 moves right and starts where Figma places it (first tile 673px off the left edge). */
+.gallery-track-reverse {
+  animation-name: gallery-right;
+  animation-delay: calc(var(--gallery-duration) * -0.7436);
+}
+.gallery-row:hover .gallery-track {
+  animation-play-state: paused;
+}
+.gallery-tile {
+  flex-shrink: 0;
+  width: 78vw;
+  margin-right: 12px;
+}
+@media (width >= 48rem) {
+  .gallery-tile {
+    width: 43.906vw;
+    margin-right: 1.6667vw;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track {
+    animation: none;
+  }
+  .gallery-track-reverse {
+    transform: translate3d(-12.818%, 0, 0);
+  }
+}
+@keyframes gallery-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@keyframes gallery-right {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Showreel frames hand over to the moving video once it is ready (see FlyingVideo). */
+[data-flying-video="on"] [data-video-slot] {
+  background: transparent;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 100px;
+  background: var(--color-ink);
+  color: #fff;
+  font-size: 16px;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 16px;
+}
