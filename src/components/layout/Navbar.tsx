@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { Button, IconLink } from "@/components/ui/Button";
 import { site } from "@/config/site";
 import { cn } from "@/lib/cn";
@@ -57,8 +58,7 @@ export function Navbar() {
           </nav>
 
           <a href="#top" aria-label={`${site.name} — home`} className="shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icons/logo.svg" alt={site.name} width={130} height={24} className="block" />
+            <BrandLogo label="" className="h-[26px] lg:h-[30px]" />
           </a>
 
           <div className="flex items-center gap-2">

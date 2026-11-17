@@ -18,6 +18,13 @@
   --color-subtle: #717171;
   --color-placeholder: #d9d9d9;
   --color-video: #0b0b0b;
+  /* Brand identity ("Aslam Rabbi Branding Logo") */
+  --color-brand-night: #04002f;
+  --color-brand-indigo: #2b1de0;
+  --color-brand-cream: #f1ede6;
+  --color-brand-lavender: #c9c4f2;
+  --color-brand-lime: #edff49;
+  --color-brand-navy: #000081;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -34,6 +41,7 @@
 
 /* Fluid spacing: every value hits the Figma number exactly at 1920px. */
 :root {
+  --font-sora: var(--font-sora-face), "Sora", ui-sans-serif, system-ui, sans-serif;
   --gutter: clamp(20px, 6.25vw, 120px); /* 120 */
   --section-y: clamp(72px, 6.875vw, 132px); /* 132 */
   --stack: clamp(40px, 3.75vw, 72px); /* 72 — heading → content */
@@ -238,4 +246,110 @@ body {
 }
 .skip-link:focus {
   top: 16px;
+}
+
+/* ---------------------------------------------------------------------------
+   Brand halftone — the cover's dot pattern, kept very subtle.
+   Set --dots-at to place the corner it grows from (e.g. "100% 100%").
+--------------------------------------------------------------------------- */
+.halftone {
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: radial-gradient(circle at center, #2b1de0 0, #2b1de0 1.6px, transparent 2.2px);
+  background-size: 12px 12px;
+  -webkit-mask-image: radial-gradient(ellipse 48% 60% at var(--dots-at, 100% 100%), #000 0%, rgba(0, 0, 0, 0.4) 35%, transparent 70%);
+  mask-image: radial-gradient(ellipse 48% 60% at var(--dots-at, 100% 100%), #000 0%, rgba(0, 0, 0, 0.4) 35%, transparent 70%);
+}
+@media (max-width: 47.99rem) {
+  .halftone {
+    background-size: 9px 9px;
+    background-image: radial-gradient(circle at center, #2b1de0 0, #2b1de0 1.2px, transparent 1.7px);
+  }
+}
+
+/* Hero cursor parallax: the script sets --px/--py per layer (separate from Framer's transform). */
+[data-depth] {
+  translate: var(--px, 0) var(--py, 0);
+}
+
+/* Hero industry tags — endless sideways scroll */
+.tags-viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 82%, transparent 100%);
+}
+@media (width >= 64rem) {
+  .tags-viewport {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 57.8%, transparent 74.6%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 57.8%, transparent 74.6%);
+  }
+}
+.tags-track {
+  display: flex;
+  width: max-content;
+  animation: tags-scroll 50s linear infinite;
+}
+.tags-viewport:hover .tags-track {
+  animation-play-state: paused;
+}
+@keyframes tags-scroll {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* "Only 2 spots left" — green, gently pulsing */
+.spots-text {
+  color: #3ee66b;
+  transform-origin: left center;
+  animation: spots-pulse 2s ease-in-out infinite;
+}
+.spots-ring {
+  animation: spots-ring 2s ease-out infinite;
+}
+@keyframes spots-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+@keyframes spots-ring {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tags-track,
+  .spots-text,
+  .spots-ring {
+    animation: none;
+  }
+}
+
+/* "My Work Process" cards (see WorkProcess.tsx) */
+.wp-card {
+  background: var(--bg);
+  transform: rotate(var(--r));
+}
+.wp-card + .wp-card {
+  margin-top: -8px;
+}
+@media (width >= 64rem) {
+  .wp-card {
+    position: absolute;
+    left: 6.378%;
+    width: 69.818%;
+    min-height: 33.333%;
+    top: var(--top);
+  }
+  .wp-card + .wp-card {
+    margin-top: 0;
+  }
+  .wp-track[data-pin="on"] .wp {
+    position: sticky;
+    top: var(--wp-top, 0px);
+  }
+  .wp-track[data-pin="on"] .wp-card {
+    transform: translate3d(calc(var(--x, 0) * 1%), calc(var(--y, 0) * 1px), 0) rotate(calc(var(--r) + var(--rr, 0deg)));
+    opacity: var(--o, 1);
+    will-change: transform, opacity;
+  }
 }

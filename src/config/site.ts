@@ -15,8 +15,10 @@ export const site = {
   timeZoneLabel: "GMT+6",
   location: "Remote from Dhaka,BD",
 
-  // TODO: replace with your booking page (e.g. Calendly) — used by "Collaborate", "Book a call", "Grab 20 minutes".
-  bookingUrl: "mailto:aslamrabbiuiux@gmail.com?subject=Let%E2%80%99s%20talk%20about%20a%20project",
+  // Booking page — used by "Collaborate", "Book a call", "Grab 20 minutes", "Meet us online" and the FAQ links.
+  bookingUrl: "https://calendly.com/mdaslamalrabbi/new-project-decision",
+  // CV — opens in the browser's PDF viewer (which has its own download button). Replace the file to update it.
+  cvUrl: "/cv/Aslam-Rabbi-CV.pdf",
 
   nav: [
     { label: "Work", href: "#work" },
@@ -25,11 +27,10 @@ export const site = {
     { label: "Prices", href: "#services" },
   ],
 
-  // TODO: add your profile URLs.
   social: {
-    dribbble: "",
-    linkedin: "",
-    instagram: "",
+    dribbble: "https://dribbble.com/Aslam-Rabbio",
+    linkedin: "https://www.linkedin.com/in/aslam-rabbio/",
+    instagram: "https://www.instagram.com/uiuxaslam/",
   },
 
   // Showreel: plays in the small Quick intro frame, then grows into the big frame on scroll.
@@ -38,21 +39,36 @@ export const site = {
     showreelWebm: "/videos/showreel.webm",
     poster: "/videos/showreel-poster.jpg",
   },
-  // 3:4 silent reel in the tilted frame behind "Selected Projects".
-  projectsReel: {
-    webm: "/videos/projects-reel.webm",
-    mp4: "/videos/projects-reel.mp4",
-    poster: "/videos/projects-reel-poster.jpg",
-  },
 } as const;
 
+/** Industry tags under the hero headline — they scroll sideways in a loop. */
 export const heroTags = [
-  { label: "Health", dot: "/icons/dot-health.svg" },
-  { label: "AIUX", dot: "/icons/dot-aiux.svg" },
-  { label: "B2B&B2C", dot: "/icons/dot-b2b.svg" },
-  { label: "Fintech", dot: "/icons/dot-fintech.svg" },
-  { label: "Real estate", dot: "/icons/dot-real-estate.svg" },
+  { label: "Health", color: "#05CD41" },
+  { label: "AIUX", color: "#FE0027" },
+  { label: "B2B&B2C", color: "#00CBFE" },
+  { label: "Fintech", color: "#1300F3" },
+  { label: "Real estate", color: "#FEB600" },
+  { label: "Telco", color: "#A855F7" },
+  { label: "AI product design", color: "#EFFF1A" },
+  { label: "E-commerce", color: "#F472B6" },
+  { label: "Banking", color: "#14B8A6" },
+  { label: "SaaS", color: "#60A5FA" },
+  { label: "EV & mobility", color: "#84CC16" },
 ] as const;
+
+/** Photos in the tilted hero frame — they change in place every 5 seconds, in this order. */
+export const heroPhotos = [
+  "/images/hero/photo-01.webp",
+  "/images/hero/photo-02.webp",
+  "/images/hero/photo-03.webp",
+  "/images/hero/photo-04.webp",
+  "/images/hero/photo-05.webp",
+  "/images/hero/photo-06.webp",
+  "/images/hero/photo-07.webp",
+  "/images/hero/photo-08.webp",
+  "/images/hero/photo-09.webp",
+] as const;
+export const heroPhotoDelay = 5000;
 
 /**
  * `caseStudyUrl`: set it when a case study is published — the tile becomes a link and shows
@@ -60,57 +76,89 @@ export const heroTags = [
  */
 export type Project = { src: string; alt: string; caseStudyUrl?: string };
 
-/** Three rows, left → right, exactly as laid out in Figma. */
+/** Three rows, left → right. Figma only has narrow crops for three tiles, so complete projects fill those spots. */
+const P = {
+  analytics: { src: "/images/projects/project-01.jpg", alt: "Analytics platform landing page shown on a laptop" },
+  biotech: { src: "/images/projects/project-02.jpg", alt: "Biotech website hero, “Engineering the Biological Renaissance”" },
+  video: { src: "/images/projects/project-05.jpg", alt: "Video editing mobile app screens on a yellow background" },
+  ev: { src: "/images/projects/project-06.jpg", alt: "EV charging map app screen" },
+  scheduling: { src: "/images/projects/project-07.jpg", alt: "Scheduling mobile app shown on two phones" },
+  business: { src: "/images/projects/project-08.jpg", alt: "Business platform dashboard on a laptop in a dark scene" },
+} satisfies Record<string, Project>;
+
 export const projectRows: Project[][] = [
-  [
-    { src: "/images/projects/project-01.jpg", alt: "Analytics platform landing page shown on a laptop" },
-    { src: "/images/projects/project-02.jpg", alt: "Biotech website hero, “Engineering the Biological Renaissance”" },
-    { src: "/images/projects/project-03.jpg", alt: "Lifestyle website hero with people in conversation" },
-  ],
-  [
-    { src: "/images/projects/project-04.jpg", alt: "Outdoor brand website with a mountain landscape" },
-    { src: "/images/projects/project-05.jpg", alt: "Video editing mobile app screens on a yellow background" },
-    { src: "/images/projects/project-06.jpg", alt: "EV charging map app screen" },
-  ],
-  [
-    { src: "/images/projects/project-07.jpg", alt: "Scheduling mobile app shown on two phones" },
-    { src: "/images/projects/project-08.jpg", alt: "Business platform dashboard on a laptop in a dark scene" },
-    { src: "/images/projects/project-09.jpg", alt: "Dark blue website hero" },
-  ],
+  [P.analytics, P.biotech, P.video],
+  [P.business, P.video, P.ev],
+  [P.scheduling, P.business, P.biotech],
 ];
 
+/** Services accordion — clicking a service shows its own text and image. */
 export const services = [
   {
-    code: "[ S-01 ]",
-    title: "UI/UX  Design Services",
-    uppercase: true,
-    description: "Digital products designed with intuitive flow, structure, and usability in mind.",
+    title: "Product Design Services",
+    description: "Products designed and built with intuitive flows, clear structure and measurable results.",
+    image: "/images/services/product-design.webp",
+    alt: "Aslam Rabbi designing a product at his desk",
   },
   {
-    code: "[ S-02 ]",
-    title: "App Design Services",
-    uppercase: false,
-    description: "Digital products designed with intuitive flow, structure, and usability in mind.",
+    title: "AI Development Services",
+    description: "Fast, secure and scalable AI development that turns complex tech into simple experiences.",
+    image: "/images/services/ai-development.webp",
+    alt: "AI assistant connected to AI tools",
   },
   {
-    code: "[ S-03 ]",
-    title: "Web Design Services",
-    uppercase: false,
-    description: "Digital products designed with intuitive flow, structure, and usability in mind.",
+    title: "Product Management Services",
+    description: "Clear roadmaps, smart priorities and decisions that keep your product moving forward.",
+    image: "/images/services/product-management.webp",
+    alt: "Product workflow connecting data analysis and app integrations",
   },
   {
-    code: "[ S-04 ]",
-    title: "Development Services",
-    uppercase: false,
-    description: "Digital products designed with intuitive flow, structure, and usability in mind.",
+    title: "AI Design Services",
+    description: "AI experiences designed to feel human, build trust and make complex tools simple.",
+    image: "/images/services/ai-design.webp",
+    alt: "Friendly AI robot working on a laptop",
   },
 ] as const;
 
-/** Client logo strip in the footer. Figma currently repeats one sample logo. */
-export const clients = Array.from({ length: 8 }, () => ({
-  name: "Redpoint",
-  src: "/icons/client-redpoint.svg",
-}));
+/** "My Work Process" cards — brought in one by one as you scroll. */
+export const processSteps = [
+  { title: "Listen", body: "We start with your users and goals, so every decision is based on real needs.", bg: "#FFEEE8", tilt: -2, rule: "rgba(2,0,8,0.3)" },
+  { title: "Understand", body: "I turn research and data into clear decisions, so we design the right thing first.", bg: "#F8FFE8", tilt: 2, rule: "rgba(2,0,8,0.5)" },
+  { title: "Create", body: "I design and build with AI-powered workflows, making fast, confident decisions at every step.", bg: "#E8FCFF", tilt: -2, rule: "rgba(2,0,8,0.5)" },
+  { title: "Scale", body: "We measure what users do, then refine and grow based on real data, not guesswork.", bg: "#F3E8FF", tilt: 2, rule: "#020008" },
+] as const;
+
+/** Client logos in the hero strip: grey by default, the full-colour card on hover. */
+const client = (key: string, name: string, tone = false) => ({
+  name,
+  normal: `/images/clients/${key}-normal.png`,
+  hover: `/images/clients/${key}-hover.png`,
+  tone,
+});
+export const clients = [
+  client("placed", "Placed"),
+  client("jkb", "Jordan Kuwait Bank"),
+  client("boigor", "Boighor"),
+  client("raqamyah", "Raqamyah"),
+  client("pep", "PEP Express Transport System", true),
+  client("mygp", "MyGP"),
+  client("senlink", "SenLink"),
+  client("quicklawpro", "Quick Law Pro"),
+  client("cello", "Cello"),
+  client("momenta", "Momenta"),
+];
+
+/** Footer "Ask AI" links — each opens that assistant with a question about Aslam. */
+const aiPrompt = encodeURIComponent(
+  "Give me a short summary of Aslam Rabbi's work as a product designer and developer (aslamrabbi.com).",
+);
+export const aiLinks = [
+  { name: "Grok", icon: "/icons/ai/grok.png", href: `https://grok.com/?q=${aiPrompt}` },
+  { name: "Claude", icon: "/icons/ai/claude.png", href: `https://claude.ai/new?q=${aiPrompt}` },
+  { name: "Perplexity", icon: "/icons/ai/perplexity.png", href: `https://www.perplexity.ai/search?q=${aiPrompt}` },
+  { name: "Gemini", icon: "/icons/ai/gemini.png", href: "https://gemini.google.com/app" },
+  { name: "ChatGPT", icon: "/icons/ai/chatgpt.png", href: `https://chatgpt.com/?q=${aiPrompt}` },
+] as const;
 
 /**
  * FAQ — shown in this order; the first one starts open.

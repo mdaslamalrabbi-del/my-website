@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Sora } from "next/font/google";
 import localFont from "next/font/local";
 import type { ReactNode } from "react";
 import { MotionProvider } from "@/components/ui/MotionProvider";
@@ -17,6 +18,9 @@ const switzer = localFont({
   display: "swap",
 });
 
+/** Sora ExtraBold — the brand logo's typeface. */
+const sora = Sora({ subsets: ["latin"], weight: "800", variable: "--font-sora-face", display: "swap" });
+
 export const metadata: Metadata = {
   title: site.title,
   description: site.description,
@@ -24,17 +28,17 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
     type: "website",
-    images: [{ url: "/images/hero-bg.jpg", width: 1920, height: 1080 }],
+    images: [{ url: "/images/og.jpg", width: 1920, height: 1080 }],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#010007",
+  themeColor: "#04002F",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={switzer.variable}>
+    <html lang="en" className={`${switzer.variable} ${sora.variable}`}>
       <body className="bg-page font-sans text-ink antialiased">
         <a href="#main" className="skip-link">
           Skip to content

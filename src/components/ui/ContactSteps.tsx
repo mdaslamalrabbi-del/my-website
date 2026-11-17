@@ -45,14 +45,14 @@ export function ContactSteps({ className }: { className?: string }) {
                 aria-hidden
                 className={cn(
                   "relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-colors duration-300",
-                  on ? "bg-[#6352fc]" : "bg-[#0f0e43]",
+                  on ? "bg-brand-navy" : "bg-[#0f0e43]",
                 )}
               >
                 <span className={cn("h-1 w-1 rounded-full", on ? "bg-white" : "bg-white/90")} />
                 {/* Purple trail under the active dot */}
                 <span
                   className={cn(
-                    "absolute top-[18px] left-[9px] h-12 w-[2px] bg-gradient-to-b from-[#4734f7] to-transparent transition-opacity duration-300",
+                    "absolute top-[18px] left-[9px] h-12 w-[2px] bg-gradient-to-b from-brand-navy to-transparent transition-opacity duration-300",
                     on ? "opacity-100" : "opacity-0",
                   )}
                 />
@@ -79,7 +79,7 @@ export function ContactSteps({ className }: { className?: string }) {
                   aria-hidden
                   className={cn(
                     "flex h-[41px] w-[41px] items-center justify-center rounded-full transition-colors duration-300",
-                    on ? "bg-[#6352fc]" : "bg-black/30",
+                    on ? "bg-brand-navy" : "bg-black/30",
                   )}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}

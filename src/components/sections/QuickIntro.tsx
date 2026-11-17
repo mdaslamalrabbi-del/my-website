@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/Button";
+import { Pill } from "@/components/ui/Pill";
 import { Reveal } from "@/components/ui/Reveal";
 import { VideoPanel } from "@/components/ui/VideoPanel";
 import { site } from "@/config/site";
-
-const introGradient =
-  "linear-gradient(76deg, rgb(239,255,26) 0%, rgb(27,133,199) 10.12%, rgb(160,29,29) 19.91%, rgb(0,0,0) 44.38%, rgb(45,12,248) 67.42%, rgb(135,88,153) 84.15%, rgb(255,160,48) 100%)";
 
 /** Figma "Quick Info" (83:2087). */
 export function QuickIntro() {
@@ -19,15 +17,8 @@ export function QuickIntro() {
 
         <div className="mt-stack flex flex-col gap-10 lg:grid lg:min-h-[min(560px,29.1667vw)] lg:grid-cols-[50.714%_1fr] lg:grid-rows-[auto_1fr] lg:gap-0">
           {/* Label */}
-          <Reveal className="flex items-center gap-2 lg:col-start-1 lg:row-start-1">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icons/dot-intro.svg" alt="" width={10} height={10} className="block h-2.5 w-2.5" />
-            <p
-              className="text-body bg-clip-text whitespace-nowrap text-transparent"
-              style={{ backgroundImage: introGradient }}
-            >
-              Quick intro
-            </p>
+          <Reveal className="lg:col-start-1 lg:row-start-1">
+            <Pill className="mt-2">Quick intro</Pill>
           </Reveal>
 
           {/* Copy + CTA (Figma x 852, w 828) */}

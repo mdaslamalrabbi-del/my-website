@@ -6,6 +6,7 @@ import { QuickIntro } from "@/components/sections/QuickIntro";
 import { SelectedProjects } from "@/components/sections/SelectedProjects";
 import { Services } from "@/components/sections/Services";
 import { Showreel } from "@/components/sections/Showreel";
+import { WorkProcess } from "@/components/sections/WorkProcess";
 import { FlyingVideo } from "@/components/ui/FlyingVideo";
 import { site } from "@/config/site";
 
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Showreel />
         <SelectedProjects />
         <Services />
+        <WorkProcess />
         <Faq />
         <FlyingVideo src={site.video.showreel} webmSrc={site.video.showreelWebm} poster={site.video.poster} label="Showreel video" />
       </main>
