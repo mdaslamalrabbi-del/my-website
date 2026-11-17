@@ -51,7 +51,7 @@ function ProjectTile({ project, hidden }: { project: Project; hidden: boolean })
     <>
       <Image
         src={project.src}
-        alt={hidden ? "" : project.alt}
+        alt={project.alt}
         fill
         sizes="(min-width: 768px) 44vw, 78vw"
         className="object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.03]"

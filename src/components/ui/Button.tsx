@@ -76,7 +76,7 @@ export function IconLink({ href, label, icon, className }: IconLinkProps) {
     className,
   );
   // eslint-disable-next-line @next/next/no-img-element
-  const img = <img src={icon} alt="" className="block h-3.5 w-3.5" />;
+  const img = <img src={icon} alt={`${label} icon`} aria-hidden className="block h-3.5 w-3.5" />;
 
   if (!href) {
     return (

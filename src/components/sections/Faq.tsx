@@ -41,7 +41,7 @@ export function Faq() {
                   </p>
                   <div className="flex items-center gap-4">
                     <Image
-                      src="/images/faq-avatar.png"
+                      src="/images/aslam-rabbi-product-designer-avatar.png"
                       alt={site.name}
                       width={48}
                       height={48}

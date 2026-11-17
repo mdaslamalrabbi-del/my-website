@@ -46,11 +46,11 @@ export function HeroPhotos() {
 
   return (
     <span ref={ref} className="absolute inset-0">
-      {heroPhotos.map((src, i) => (
+      {heroPhotos.map(({ src, alt }, i) => (
         <Image
           key={src}
           src={src}
-          alt=""
+          alt={alt}
           fill
           priority={i === 0}
           sizes="(min-width: 1024px) 270px, 25vw"

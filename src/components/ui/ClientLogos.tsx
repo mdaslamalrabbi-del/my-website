@@ -17,8 +17,10 @@ export function ClientLogos() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={client.normal}
-            alt={hidden ? "" : client.name}
+            alt={`${client.name} logo`}
             loading="lazy"
+            width={256}
+            height={124}
             className={cn(
               "absolute inset-0 h-full w-full object-contain transition-opacity duration-[450ms] group-hover/logo:opacity-0",
               client.tone ? "opacity-50 brightness-150 grayscale" : "opacity-45 brightness-0 invert",
@@ -27,9 +29,11 @@ export function ClientLogos() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={client.hover}
-            alt=""
+            alt={`${client.name} logo in colour`}
             aria-hidden
             loading="lazy"
+            width={256}
+            height={124}
             className="absolute inset-0 h-full w-full scale-[0.92] object-contain opacity-0 transition-[opacity,transform] duration-[600ms] ease-out-expo group-hover/logo:scale-100 group-hover/logo:opacity-100"
           />
         </span>

@@ -3,6 +3,49 @@
  * Copy is taken verbatim from the Figma file. Fill in the TODO links when available;
  * any link left empty renders as plain text instead of a dead link.
  */
+/** Search engine metadata — titles, descriptions and keywords never shown on the page. */
+export const seo = {
+  url: "https://www.aslamrabbi.com",
+  title: "Aslam Rabbi — AI Product Designer & Senior UX Designer",
+  description:
+    "Aslam Rabbi is an AI Product Designer and Senior UX Designer from Dhaka designing fintech, telco and SaaS products: UX/UI design, UX research, UX engineering and AI development.",
+  jobTitle: "AI Product Designer & Senior UX Designer",
+  alternateNames: ["Md Aslam Al Rabbi", "MD Aslam Al Rabbi", "Aslam Al Rabbi", "Aslam Rabbio", "Rabbi"],
+  keywords: [
+    "Aslam Rabbi",
+    "AI Product Designer",
+    "Senior UX Designer",
+    "Product Designer",
+    "UX Design Engineer",
+    "UX Engineer",
+    "AI UX Designer",
+    "Fintech UX/UI Design",
+    "Telco UX/UI Design",
+    "SaaS Product Design",
+    "Product Design Services",
+    "UX Design Services",
+    "AI Development Services",
+    "Product Management",
+    "UX Research and Strategy",
+  ],
+  /** Services as search engines should understand them (structured data only). */
+  services: [
+    { name: "AI Product Design", description: "Designing AI-powered products and AI UX that feel human, build trust and make complex tools simple." },
+    { name: "UX/UI Design", description: "End-to-end UX/UI design for web, iOS, Android and SaaS products with intuitive flows and clear structure." },
+    { name: "Fintech Product Design", description: "Fintech UX/UI design for banking, lending, payments and real-estate analysis products." },
+    { name: "Telco Product Design", description: "Telco UX/UI design for large-scale apps such as Grameenphone’s MyGP, serving millions of users." },
+    { name: "SaaS Product Design", description: "SaaS product design for dashboards, ERP, HRM and B2B platforms, backed by scalable design systems." },
+    { name: "Product Strategy and Management", description: "Clear roadmaps, smart priorities and product decisions that keep a product moving forward." },
+    { name: "AI Development and Design Services", description: "Fast, secure and scalable AI development that turns complex technology into simple experiences." },
+    { name: "UX Research and Design Engineering", description: "UX research, usability testing, information architecture and design engineering in React, Next.js, Webflow and Flutter." },
+  ],
+  knowsAbout: [
+    "Product Design", "UX Design", "UI Design", "AI Product Design", "AI UX Design", "UX Research", "UX Strategy",
+    "UX Engineering", "Design Systems", "Information Architecture", "Usability Testing", "Fintech", "Telecommunications",
+    "SaaS", "E-commerce", "Healthcare UX", "Product Management", "Figma", "React", "Next.js",
+  ],
+} as const;
+
 export const site = {
   name: "Aslam Rabbi",
   title: "Aslam Rabbi — Designer for Growth",
@@ -35,9 +78,9 @@ export const site = {
 
   // Showreel: plays in the small Quick intro frame, then grows into the big frame on scroll.
   video: {
-    showreel: "/videos/showreel.mp4",
-    showreelWebm: "/videos/showreel.webm",
-    poster: "/videos/showreel-poster.jpg",
+    showreel: "/videos/aslam-rabbi-product-design-showreel.mp4",
+    showreelWebm: "/videos/aslam-rabbi-product-design-showreel.webm",
+    poster: "/videos/aslam-rabbi-product-design-showreel-poster.jpg",
   },
 } as const;
 
@@ -58,15 +101,15 @@ export const heroTags = [
 
 /** Photos in the tilted hero frame — they change in place every 5 seconds, in this order. */
 export const heroPhotos = [
-  "/images/hero/photo-01.webp",
-  "/images/hero/photo-02.webp",
-  "/images/hero/photo-03.webp",
-  "/images/hero/photo-04.webp",
-  "/images/hero/photo-05.webp",
-  "/images/hero/photo-06.webp",
-  "/images/hero/photo-07.webp",
-  "/images/hero/photo-08.webp",
-  "/images/hero/photo-09.webp",
+  { src: "/images/hero/aslam-rabbi-gm25-award-product-design-team.webp", alt: "Aslam Rabbi with his product design team receiving an award at GM’25" },
+  { src: "/images/hero/aslam-rabbi-townhall-award-ux-designer.webp", alt: "Aslam Rabbi, UX designer, receiving an award at a company townhall" },
+  { src: "/images/hero/cross-functional-teamwork-product-design-team.webp", alt: "Cross-functional teamwork: Aslam Rabbi with his product design and development team" },
+  { src: "/images/hero/cross-functional-teamwork-ux-design-office.webp", alt: "Cross-functional teamwork: UX, research and product team photo in the office" },
+  { src: "/images/hero/aslam-rabbi-ux-ui-designer-appreciation-certificate.webp", alt: "Aslam Rabbi, UX/UI designer, holding a certificate of appreciation from Mediusware" },
+  { src: "/images/hero/product-design-team-celebration-dhaka.webp", alt: "Product design and engineering team celebrating together in Dhaka" },
+  { src: "/images/hero/aslam-rabbi-farewell-design-team.webp", alt: "Aslam Rabbi with his design team at a farewell celebration" },
+  { src: "/images/hero/aslam-rabbi-grameenphone-telco-ux-ui-design.webp", alt: "Aslam Rabbi at Grameenphone headquarters, where he worked on telco UX/UI design for the MyGP app" },
+  { src: "/images/hero/aslam-rabbi-ux-design-workshop.webp", alt: "Aslam Rabbi attending a UX design workshop" },
 ] as const;
 export const heroPhotoDelay = 5000;
 
@@ -78,12 +121,12 @@ export type Project = { src: string; alt: string; caseStudyUrl?: string };
 
 /** Three rows, left → right. Figma only has narrow crops for three tiles, so complete projects fill those spots. */
 const P = {
-  analytics: { src: "/images/projects/project-01.jpg", alt: "Analytics platform landing page shown on a laptop" },
-  biotech: { src: "/images/projects/project-02.jpg", alt: "Biotech website hero, “Engineering the Biological Renaissance”" },
-  video: { src: "/images/projects/project-05.jpg", alt: "Video editing mobile app screens on a yellow background" },
-  ev: { src: "/images/projects/project-06.jpg", alt: "EV charging map app screen" },
-  scheduling: { src: "/images/projects/project-07.jpg", alt: "Scheduling mobile app shown on two phones" },
-  business: { src: "/images/projects/project-08.jpg", alt: "Business platform dashboard on a laptop in a dark scene" },
+  analytics: { src: "/images/projects/saas-analytics-platform-landing-page-design.jpg", alt: "SaaS analytics platform landing page design shown on a laptop" },
+  biotech: { src: "/images/projects/biotech-website-ux-ui-design.jpg", alt: "Biotech website UX/UI design, hero “Engineering the Biological Renaissance”" },
+  video: { src: "/images/projects/ai-video-editing-mobile-app-design.jpg", alt: "AI video editing mobile app design with AI emoji and template screens" },
+  ev: { src: "/images/projects/ev-charging-map-app-ux-design.jpg", alt: "EV charging map app UX design" },
+  scheduling: { src: "/images/projects/scheduling-mobile-app-product-design.jpg", alt: "Scheduling mobile app product design shown on two phones" },
+  business: { src: "/images/projects/business-dashboard-saas-product-design.jpg", alt: "Business dashboard SaaS product design on a laptop" },
 } satisfies Record<string, Project>;
 
 export const projectRows: Project[][] = [
@@ -97,26 +140,26 @@ export const services = [
   {
     title: "Product Design Services",
     description: "Products designed and built with intuitive flows, clear structure and measurable results.",
-    image: "/images/services/product-design.webp",
-    alt: "Aslam Rabbi designing a product at his desk",
+    image: "/images/services/product-design-services-aslam-rabbi.webp",
+    alt: "Product design services: Aslam Rabbi designing a product at his desk",
   },
   {
     title: "AI Development Services",
     description: "Fast, secure and scalable AI development that turns complex tech into simple experiences.",
-    image: "/images/services/ai-development.webp",
-    alt: "AI assistant connected to AI tools",
+    image: "/images/services/ai-development-services.webp",
+    alt: "AI development services: an AI assistant connected to AI tools",
   },
   {
     title: "Product Management Services",
     description: "Clear roadmaps, smart priorities and decisions that keep your product moving forward.",
-    image: "/images/services/product-management.webp",
-    alt: "Product workflow connecting data analysis and app integrations",
+    image: "/images/services/product-management-services.webp",
+    alt: "Product management services: a product workflow connecting data analysis and app integrations",
   },
   {
     title: "AI Design Services",
     description: "AI experiences designed to feel human, build trust and make complex tools simple.",
-    image: "/images/services/ai-design.webp",
-    alt: "Friendly AI robot working on a laptop",
+    image: "/images/services/ai-ux-design-services.webp",
+    alt: "AI UX design services: a friendly AI robot working on a laptop",
   },
 ] as const;
 
@@ -131,8 +174,8 @@ export const processSteps = [
 /** Client logos in the hero strip: grey by default, the full-colour card on hover. */
 const client = (key: string, name: string, tone = false) => ({
   name,
-  normal: `/images/clients/${key}-normal.png`,
-  hover: `/images/clients/${key}-hover.png`,
+  normal: `/images/clients/${key}-logo-grey.png`,
+  hover: `/images/clients/${key}-logo.png`,
   tone,
 });
 export const clients = [

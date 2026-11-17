@@ -39,7 +39,7 @@ export function Footer() {
 
               <div className="inline-flex items-center gap-4 self-start bg-ink py-3 pr-5 pl-3">
                 <Image
-                  src="/images/avatar.png"
+                  src="/images/aslam-rabbi-ux-designer-portrait.png"
                   alt={site.name}
                   width={56}
                   height={56}
@@ -84,7 +84,7 @@ export function Footer() {
                         />
                         {social.label}
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={social.icon} alt="" width={16} height={16} className="block h-4 w-4" />
+                        <img src={social.icon} alt={`${social.label} icon`} aria-hidden width={16} height={16} className="block h-4 w-4" />
                       </>
                     );
                     const classes =
@@ -129,7 +129,7 @@ export function Footer() {
                     className="block h-12 w-12 overflow-hidden rounded-xl transition-[transform,filter] duration-500 ease-out-expo hover:-translate-y-1 hover:brightness-110 focus-visible:-translate-y-1"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={ai.icon} alt="" width={48} height={48} className="block h-12 w-12" />
+                    <img src={ai.icon} alt={`${ai.name} logo`} width={48} height={48} className="block h-12 w-12" />
                   </a>
                 </li>
               ))}
