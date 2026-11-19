@@ -102,8 +102,8 @@ export function Hero() {
                 className="mt-8 flex max-w-[600px] flex-col items-start gap-4 lg:mt-10 xl:mt-0 xl:max-w-[568px]"
               >
                 <p className="text-body text-[rgba(250,249,246,0.9)] xl:text-[clamp(16px,1.0417vw,20px)]">
-                  Psychology tells me why users act. Business goals tell me what to aim for. AI tells me how to scale
-                  it. Then I design.
+                  I’m Aslam Rabbi, an AI Product Designer. Psychology tells me why users act, business goals what to
+                  aim for, and AI how to scale it.
                 </p>
                 <a
                   href={site.bookingUrl}
@@ -154,7 +154,7 @@ export function Hero() {
               <p>
                 Collaborating globally
                 <br />
-                Local time ({site.timeZoneLabel}) <LiveClock />
+                Local time ({site.timeZoneLabel} - <LiveClock />)
               </p>
             </div>
             <div className="flex gap-2">
@@ -166,7 +166,7 @@ export function Hero() {
               <p className="spots-text">
                 Only 2 spots left
                 <br />
-                this months.
+                this month.
               </p>
             </div>
             <a

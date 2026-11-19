@@ -11,7 +11,8 @@ export function QuickIntro() {
       <div className="container-site py-section">
         <Reveal>
           <h2 id="about-title" className="text-h2 max-w-[1129px] text-black lg:w-[67.2%]">
-            Impact-first designer, built in Figma and accelerated by AI.
+            <span className="text-black/50">Senior UX Designer and AI Product Designer,</span> built in Figma and
+            accelerated by AI.
           </h2>
         </Reveal>
 
@@ -28,14 +29,15 @@ export function QuickIntro() {
           >
             <div className="text-lead text-black/60">
               <p className="mb-5">
-                Over the past 6+ years, I’ve completed 70+ projects across{" "}
-                <strong className="font-semibold">web, iOS, Android and SaaS</strong>, reaching 20M+ users every
-                month. Good design isn’t decoration. It’s strategy, research and craft working together to move your
-                business forward.
+                I’m Aslam Rabbi, a Senior UX Designer based in Dhaka. Over 6+ years, I’ve completed 70+ projects across{" "}
+                <strong className="font-medium">
+                  web, iOS, Android and SaaS for fintech, telco and AI teams, reaching 20M+ users
+                </strong>{" "}
+                every month.
               </p>
               <p>
-                Why settle for a product that just looks good when it could also convert, retain and grow? Explore the
-                case studies behind the numbers.
+                Good design isn’t decoration. It’s UX research, strategy and craft working together to move your
+                business forward. Explore the case studies behind the numbers.
               </p>
             </div>
             <Button href={site.bookingUrl}>Grab 20 minutes</Button>

@@ -87,8 +87,8 @@ export const site = {
 /** Industry tags under the hero headline — they scroll sideways in a loop. */
 export const heroTags = [
   { label: "Health", color: "#05CD41" },
-  { label: "AIUX", color: "#FE0027" },
-  { label: "B2B&B2C", color: "#00CBFE" },
+  { label: "AI UX", color: "#FE0027" },
+  { label: "B2B & B2C", color: "#00CBFE" },
   { label: "Fintech", color: "#1300F3" },
   { label: "Real estate", color: "#FEB600" },
   { label: "Telco", color: "#A855F7" },
@@ -139,7 +139,7 @@ export const projectRows: Project[][] = [
 export const services = [
   {
     title: "Product Design Services",
-    description: "Products designed and built with intuitive flows, clear structure and measurable results.",
+    description: "UX research, UX/UI design and design engineering, with intuitive flows and measurable results.",
     image: "/images/services/product-design-services-aslam-rabbi.webp",
     alt: "Product design services: Aslam Rabbi designing a product at his desk",
   },
@@ -166,7 +166,7 @@ export const services = [
 /** "My Work Process" cards — brought in one by one as you scroll. */
 export const processSteps = [
   { title: "Listen", body: "We start with your users and goals, so every decision is based on real needs.", bg: "#FFEEE8", tilt: -2, rule: "rgba(2,0,8,0.3)" },
-  { title: "Understand", body: "I turn research and data into clear decisions, so we design the right thing first.", bg: "#F8FFE8", tilt: 2, rule: "rgba(2,0,8,0.5)" },
+  { title: "Understand", body: "I turn UX research and data into clear decisions, so we design the right thing first.", bg: "#F8FFE8", tilt: 2, rule: "rgba(2,0,8,0.5)" },
   { title: "Create", body: "I design and build with AI-powered workflows, making fast, confident decisions at every step.", bg: "#E8FCFF", tilt: -2, rule: "rgba(2,0,8,0.5)" },
   { title: "Scale", body: "We measure what users do, then refine and grow based on real data, not guesswork.", bg: "#F3E8FF", tilt: 2, rule: "#020008" },
 ] as const;

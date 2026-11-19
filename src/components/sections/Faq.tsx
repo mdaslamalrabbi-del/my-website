@@ -26,10 +26,9 @@ export function Faq() {
               </span>
               <div className="flex flex-1 flex-col gap-4">
                 <h2 id="faq-title" className="text-h2 text-brand-cream">
-                  Go-to-market
-                  <br />
+                  FAQs about working with Aslam{" "}
                   <span className="relative inline-block">
-                    FAQs
+                    Rabbi
                     <svg viewBox="0 0 72 72" aria-hidden className="absolute top-[0.02em] right-[-0.42em] h-[0.3em] w-[0.3em]">
                       <path d="M36 0C38 22 50 34 72 36C50 38 38 50 36 72C34 50 22 38 0 36C22 34 34 22 36 0Z" fill="#EDFF49" />
                     </svg>
@@ -37,7 +36,7 @@ export function Faq() {
                 </h2>
                 <div className="flex flex-1 flex-col justify-between gap-8">
                   <p className="text-lead text-brand-lavender">
-                    A few practical answers for teams figuring out whether Aslam Rabbi is the right fit, how projects run.
+                    Practical answers for teams deciding whether Aslam Rabbi is the right fit, and how projects run.
                   </p>
                   <div className="flex items-center gap-4">
                     <Image

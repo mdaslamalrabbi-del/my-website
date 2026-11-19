@@ -65,18 +65,16 @@ export function Navbar() {
             <Button href={site.bookingUrl} variant="glass" className="hidden md:inline-flex">
               Collaborate
             </Button>
-            <IconLink
-              href={site.social.instagram}
-              label="Instagram"
-              icon="/icons/instagram.svg"
-              className="hidden md:flex"
-            />
-            <IconLink
-              href={site.social.linkedin}
-              label="LinkedIn"
-              icon="/icons/linkedin.svg"
-              className="hidden md:flex"
-            />
+            <a
+              href={site.cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex h-11 items-center gap-2 rounded-full bg-[#020008] pr-5 pl-[18px] text-[20px] leading-[22px] font-light tracking-[-0.5px] whitespace-nowrap text-white/90 backdrop-blur-[10px] transition-[background-color,transform] duration-300 ease-out-expo hover:-translate-y-0.5 hover:bg-[#15122e] focus-visible:-translate-y-0.5"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/icons/cv.svg" alt="" width={24} height={24} className="block h-6 w-6" />
+              Download My CV
+            </a>
             <button
               ref={toggleRef}
               type="button"
@@ -141,6 +139,11 @@ export function Navbar() {
               <Button href={site.bookingUrl} variant="glass">
                 Collaborate
               </Button>
+              <a href={site.cvUrl} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 items-center gap-2 rounded-full bg-[#020008] pr-5 pl-[18px] text-[18px] font-light text-white/90">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/icons/cv.svg" alt="" width={24} height={24} className="block h-6 w-6" />
+                CV
+              </a>
               <IconLink href={site.social.instagram} label="Instagram" icon="/icons/instagram.svg" />
               <IconLink href={site.social.linkedin} label="LinkedIn" icon="/icons/linkedin.svg" />
             </div>
