@@ -371,3 +371,16 @@ body {
     line-height: 1.2 !important;
   }
 }
+
+/* Scroll-driven ink (components/ui/Ink.tsx): faded text fills to a solid deep colour while scrolling. */
+.ink-w {
+  color: rgb(
+    var(--ink-rgb) /
+      calc(var(--ink-from) + (1 - var(--ink-from)) * clamp(0, var(--ink, 0) * (var(--ink-n) + 1) - var(--i), 1))
+  );
+  transition: color 0.2s linear;
+}
+.ink-block {
+  color: rgb(var(--ink-rgb) / calc(var(--ink-from) + (1 - var(--ink-from)) * var(--ink, 0)));
+  transition: color 0.2s linear;
+}

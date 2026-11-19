@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Pill } from "@/components/ui/Pill";
+import { Ink } from "@/components/ui/Ink";
 import { Reveal } from "@/components/ui/Reveal";
 import { VideoPanel } from "@/components/ui/VideoPanel";
 import { site } from "@/config/site";
@@ -11,7 +12,7 @@ export function QuickIntro() {
       <div className="container-site py-section">
         <Reveal>
           <h2 id="about-title" className="text-h2 max-w-[1129px] text-black lg:w-[67.2%]">
-            <span className="text-black/50">Senior UX Designer and AI Product Designer,</span> built in Figma and
+            <Ink rgb="0 0 0">Senior UX Designer and AI Product Designer,</Ink> built in Figma and
             accelerated by AI.
           </h2>
         </Reveal>
@@ -27,7 +28,7 @@ export function QuickIntro() {
             delay={0.1}
             className="flex flex-col items-start gap-[clamp(28px,2.2917vw,44px)] lg:col-start-2 lg:row-span-2 lg:row-start-1"
           >
-            <div className="text-lead text-black/60">
+            <Ink as="div" rgb="0 0 0" from={0.6} className="text-lead">
               <p className="mb-5">
                 I’m Aslam Rabbi, a Senior UX Designer based in Dhaka. Over 6+ years, I’ve completed 70+ projects across{" "}
                 <strong className="font-medium">
@@ -39,7 +40,7 @@ export function QuickIntro() {
                 Good design isn’t decoration. It’s UX research, strategy and craft working together to move your
                 business forward. Explore the case studies behind the numbers.
               </p>
-            </div>
+            </Ink>
             <Button href={site.bookingUrl}>Grab 20 minutes</Button>
           </Reveal>
 

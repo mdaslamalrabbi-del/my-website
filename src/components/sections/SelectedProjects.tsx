@@ -1,4 +1,5 @@
 import { Pill } from "@/components/ui/Pill";
+import { Ink } from "@/components/ui/Ink";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProjectGallery } from "./ProjectGallery";
 
@@ -10,8 +11,8 @@ export function SelectedProjects() {
         <Reveal className="flex flex-col items-start gap-6 lg:flex-row lg:justify-between">
           <Pill className="lg:mt-4">My work</Pill>
           <h2 id="work-title" className="text-h2 max-w-[1129px] text-ink lg:w-[67.2%]">
-            <span className="text-ink/50">Fintech, telco and SaaS case studies,</span> designed and developed end to end,{" "}
-            <span className="text-ink/50">with real results behind every screen.</span>
+            <Ink>Fintech, telco and SaaS case studies,</Ink> designed and developed end to end,{" "}
+            <Ink>with real results behind every screen.</Ink>
           </h2>
         </Reveal>
       </div>

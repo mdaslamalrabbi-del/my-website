@@ -3,6 +3,7 @@
 import { useEffect, useRef, type CSSProperties } from "react";
 import { Button } from "@/components/ui/Button";
 import { Pill } from "@/components/ui/Pill";
+import { Ink } from "@/components/ui/Ink";
 import { Reveal } from "@/components/ui/Reveal";
 import { processSteps, site } from "@/config/site";
 
@@ -86,8 +87,8 @@ export function WorkProcess() {
                 My Work Process
               </Pill>
               <h2 id="process-title" className="text-h2 text-ink">
-                <span className="text-ink/50">How I turn user</span> psychology and AI{" "}
-                <span className="text-ink/50">into products that grow.</span>
+                <Ink>How I turn user</Ink> psychology and AI{" "}
+                <Ink>into products that grow.</Ink>
               </h2>
             </div>
             <Button href={site.bookingUrl} variant="dark">
