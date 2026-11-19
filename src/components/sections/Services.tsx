@@ -101,7 +101,7 @@ export function Services() {
                       )}
                     >
                       <div className="min-h-0 overflow-hidden" inert={!isOpen}>
-                        <div className="flex flex-col items-end gap-10 px-[clamp(16px,1.25vw,24px)] py-[clamp(24px,2.5vw,48px)]">
+                        <div className="grid justify-end justify-items-start gap-10 px-[clamp(16px,1.25vw,24px)] py-[clamp(24px,2.5vw,48px)]">
                           <p className="text-body w-full max-w-[496px] text-white/90">{s.description}</p>
                           <a
                             href={site.bookingUrl}
