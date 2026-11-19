@@ -353,3 +353,21 @@ body {
     will-change: transform, opacity;
   }
 }
+
+/* Hero sub text on laptops (1280–1679px): scales with the headline (em) so it never runs into "FOR GROWTH". */
+@media (width >= 80rem) and (width < 105rem) {
+  .hero-sub {
+    width: 39.5% !important;
+  }
+  .hero-sub > div > div {
+    gap: 0.08em !important;
+  }
+  .hero-sub p {
+    font-size: max(14px, 0.1em) !important;
+    line-height: 1.4 !important;
+  }
+  .hero-sub a {
+    font-size: max(16px, 0.12em) !important;
+    line-height: 1.2 !important;
+  }
+}

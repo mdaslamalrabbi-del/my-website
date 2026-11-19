@@ -93,7 +93,7 @@ export function Hero() {
           </h1>
 
           {/* Sub text — right column from 1280px (Figma "Sub Text", x 1136, w 568); below the headline on smaller screens */}
-          <div className="xl:absolute xl:top-[0.94em] xl:left-[60.476%] xl:w-[33.81%]">
+          <div className="hero-sub xl:absolute xl:top-[0.94em] xl:left-[60.476%] xl:w-[33.81%]">
             <div data-depth="10">
               <Reveal
                 immediate
