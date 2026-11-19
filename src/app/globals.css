@@ -337,7 +337,7 @@ body {
     position: absolute;
     left: 6.378%;
     width: 69.818%;
-    min-height: 33.333%;
+    min-height: 31.527%;
     top: var(--top);
   }
   .wp-card + .wp-card {

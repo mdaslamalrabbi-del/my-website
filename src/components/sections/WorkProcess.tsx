@@ -90,12 +90,12 @@ export function WorkProcess() {
                 <span className="text-ink/50">into products that grow.</span>
               </h2>
             </div>
-            <Button href={site.bookingUrl} variant="grey">
+            <Button href={site.bookingUrl} variant="dark">
               Grab 20 minutes
             </Button>
           </Reveal>
 
-          <div className="relative lg:@container lg:aspect-[878/768] lg:w-[52.262%]">
+          <div className="relative lg:@container lg:aspect-[878/812] lg:w-[52.262%]">
             <ol aria-label="Work process steps" className="flex flex-col lg:absolute lg:inset-0">
               {processSteps.map((s, i) => (
                 <li
@@ -107,12 +107,12 @@ export function WorkProcess() {
                       "--bg": s.bg,
                       "--r": `${s.tilt}deg`,
                       "--rule": s.rule,
-                      "--top": `${[-5.78, 23.03, 51.83, 80.64][i]}%`,
+                      "--top": `${[-5.11, 21.12, 47.35, 73.71][i]}%`,
                     } as CSSProperties
                   }
                 >
                   <div className="flex items-center justify-between gap-4 border-b border-[var(--rule)] pb-4 lg:pb-[1.822cqw]">
-                    <h3 className="text-[clamp(28px,2.5vw,48px)] leading-[0.8333] lg:text-[5.467cqw] font-medium tracking-[-0.5px] uppercase">
+                    <h3 className="text-[clamp(28px,2.0833vw,40px)] leading-none lg:text-[4.556cqw] font-medium tracking-[-0.5px] uppercase">
                       {s.title}
                     </h3>
                     <span
