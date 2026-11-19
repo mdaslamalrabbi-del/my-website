@@ -196,9 +196,7 @@ const aiPrompt = encodeURIComponent(
   "Give me a short summary of Aslam Rabbi's work as a product designer and developer (aslamrabbi.com).",
 );
 export const aiLinks = [
-  { name: "Grok", icon: "/icons/ai/grok.png", href: `https://grok.com/?q=${aiPrompt}` },
   { name: "Claude", icon: "/icons/ai/claude.png", href: `https://claude.ai/new?q=${aiPrompt}` },
-  { name: "Perplexity", icon: "/icons/ai/perplexity.png", href: `https://www.perplexity.ai/search?q=${aiPrompt}` },
   { name: "Gemini", icon: "/icons/ai/gemini.png", href: "https://gemini.google.com/app" },
   { name: "ChatGPT", icon: "/icons/ai/chatgpt.png", href: `https://chatgpt.com/?q=${aiPrompt}` },
 ] as const;
