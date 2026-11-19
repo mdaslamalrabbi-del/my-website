@@ -95,13 +95,13 @@ export function WorkProcess() {
             </Button>
           </Reveal>
 
-          <div className="relative lg:aspect-[878/768] lg:w-[52.262%]">
+          <div className="relative lg:@container lg:aspect-[878/768] lg:w-[52.262%]">
             <ol aria-label="Work process steps" className="flex flex-col lg:absolute lg:inset-0">
               {processSteps.map((s, i) => (
                 <li
                   key={s.title}
                   data-card
-                  className="wp-card flex flex-col p-[clamp(20px,1.6667vw,32px)] text-ink"
+                  className="wp-card flex flex-col p-[clamp(20px,1.6667vw,32px)] pb-10 text-ink lg:p-[3.645cqw]"
                   style={
                     {
                       "--bg": s.bg,
@@ -111,18 +111,18 @@ export function WorkProcess() {
                     } as CSSProperties
                   }
                 >
-                  <div className="flex items-center justify-between gap-4 border-b border-[var(--rule)] pb-4">
-                    <h3 className="text-[clamp(28px,2.5vw,48px)] leading-[0.8333] font-medium tracking-[-0.5px] uppercase">
+                  <div className="flex items-center justify-between gap-4 border-b border-[var(--rule)] pb-4 lg:pb-[1.822cqw]">
+                    <h3 className="text-[clamp(28px,2.5vw,48px)] leading-[0.8333] lg:text-[5.467cqw] font-medium tracking-[-0.5px] uppercase">
                       {s.title}
                     </h3>
                     <span
                       aria-hidden
-                      className="pr-[10.667px] font-['Times_New_Roman',Times,serif] text-[clamp(24px,2.0833vw,40px)] leading-[0.8] text-brand-navy"
+                      className="pr-[10.667px] font-['Times_New_Roman',Times,serif] text-[clamp(24px,2.0833vw,40px)] leading-[0.8] text-brand-navy lg:pr-[1.215cqw] lg:text-[4.556cqw]"
                     >
                       0{i + 1}
                     </span>
                   </div>
-                  <p className="max-w-[480px] pt-7 text-[clamp(16px,1.25vw,24px)] leading-[1.25] font-light tracking-[-0.5px] opacity-70">
+                  <p className="max-w-[480px] pt-7 text-[clamp(16px,1.25vw,24px)] leading-[1.25] font-light tracking-[-0.5px] opacity-70 lg:max-w-[54.67cqw] lg:pt-[3.189cqw] lg:text-[max(13px,2.733cqw)]">
                     {s.body}
                   </p>
                 </li>
